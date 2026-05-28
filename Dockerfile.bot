@@ -4,7 +4,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 WORKDIR /app
 COPY telegram-bot/package.json telegram-bot/package-lock.json* telegram-bot/tsconfig.json ./
-RUN npm ci && npm cache clean --force
+RUN npm install && npm cache clean --force
 COPY telegram-bot/src ./src
 
 USER appuser
