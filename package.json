@@ -1,0 +1,27 @@
+{
+  "name": "vigil",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vigil — The Autonomous Personal Yield Agent. While you sleep, your wealth is watched.",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network mantleTestnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network mantleMainnet",
+    "agent:start": "tsx agent/src/index.ts",
+    "bot:start": "tsx telegram-bot/src/index.ts",
+    "dashboard:dev": "cd dashboard && npm run dev",
+    "dashboard:build": "cd dashboard && npm run build"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "@solana/web3.js": "^1.98.0",
+    "dotenv": "^16.4.0"
+  }
+}

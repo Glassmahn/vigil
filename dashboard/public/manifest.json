@@ -1,0 +1,17 @@
+{
+  "name": "Vigil — Autonomous Yield Agent",
+  "short_name": "Vigil",
+  "description": "While you sleep, your wealth is watched. An AI-powered DeFi wealth manager on Mantle.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

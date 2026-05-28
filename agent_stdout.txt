@@ -1,0 +1,10 @@
+[2026-05-28T12:06:08.688Z] [INFO] [Sessions] SQLite database initialized {"path":"C:\\Users\\hp\\Desktop\\vigil\\data\\sessions.db"}
+[2026-05-28T12:06:08.733Z] [INFO] [StopLoss] Starting stop-loss monitor {"intervalMs":60000}
+[2026-05-28T12:06:08.755Z] [INFO] [Index] Running on http://localhost:3001
+[2026-05-28T12:06:08.819Z] [INFO] [Index] On-chain logger initialized (mainnet)
+[2026-05-28T12:06:08.823Z] [INFO] [Index] VigilRegistry initialized
+[2026-05-28T12:06:11.973Z] [INFO] [Index] Agent already registered on-chain
+[2026-05-28T12:26:15.690Z] [INFO] [Executor] Executing: check_balance {"user":"telegram-1758435270","tier":"Balanced"}
+[2026-05-28T12:26:25.736Z] [INFO] [Executor] Executing: check_balance {"user":"telegram-1758435270","tier":"Balanced"}
+[2026-05-28T12:26:29.916Z] [INFO] [Executor] Executing: get_portfolio {"user":"telegram-1758435270","tier":"Balanced"}
+[2026-05-28T12:26:37.662Z] [INFO] [Executor] Executing: get_portfolio {"user":"telegram-1758435270","tier":"Balanced"}

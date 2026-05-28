@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install root deps
+        run: npm ci
+
+      - name: Install agent deps
+        working-directory: agent
+        run: npm ci
+
+      - name: Install dashboard deps
+        working-directory: dashboard
+        run: npm ci
+
+      - name: Run agent unit tests
+        working-directory: agent
+        run: npx vitest run
+        env:
+          LLM_API_KEY: "sk-test"
+          TELEGRAM_BOT_TOKEN: "test:token"
+
+      - name: Compile contracts
+        run: npm run compile
+
+      - name: Type-check agent
+        working-directory: agent
+        run: npx tsc --noEmit
+
+      - name: Run contract tests
+        run: npm test
+
+      - name: Type-check dashboard
+        working-directory: dashboard
+        run: npx tsc --noEmit
+
+      - name: Build dashboard
+        working-directory: dashboard
+        run: npm run build

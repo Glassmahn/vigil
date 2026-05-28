@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "paths": {
+      "@/*": ["./agent/src/*"]
+    }
+  },
+  "include": ["./agent/src/**/*.ts", "./telegram-bot/src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "dashboard"]
+}
