@@ -1,0 +1,15 @@
+node_modules/
+.env
+.git/
+.next/
+coverage/
+cache/
+artifacts/
+typechain-types/
+*.log
+data/
+dashboard/
+telegram-bot/
+contracts/
+scripts/
+test/
