@@ -31,7 +31,7 @@ process.on("unhandledRejection", (reason) => {
 });
 
 const app = express();
-const PORT = process.env.AGENT_PORT || 3001;
+const PORT = process.env.PORT || process.env.AGENT_PORT || 3001;
 
 const DASHBOARD_ORIGIN = process.env.DASHBOARD_ORIGIN || "http://localhost:3000";
 app.use(cors({ origin: DASHBOARD_ORIGIN, credentials: true }));
