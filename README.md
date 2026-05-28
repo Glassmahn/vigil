@@ -545,3 +545,4 @@ A: No. Vigil was built for a hackathon. Use at your own risk with funds you can 
 MIT — Built for **The Turing Test Hackathon 2026**.
 
 *Not financial advice. Use at your own risk.*
+
