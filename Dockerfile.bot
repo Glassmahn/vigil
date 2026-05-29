@@ -6,6 +6,7 @@ WORKDIR /app
 COPY telegram-bot/package.json telegram-bot/package-lock.json* telegram-bot/tsconfig.json ./
 RUN npm install && npm cache clean --force
 COPY telegram-bot/src ./src
+RUN mkdir -p /app/data && chown appuser:appgroup /app/data
 
 USER appuser
 CMD ["npm", "run", "start"]
