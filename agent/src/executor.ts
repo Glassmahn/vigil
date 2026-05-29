@@ -73,6 +73,21 @@ export async function executeStrategy(
         break;
       }
       case "check_balance": {
+        const clmmPositions = await byreal.positions.list(kpPath ? { keypairPath: kpPath } : undefined);
+        const perpAccount = await byrealPerps.account.info(kpPath ? { keypairPath: kpPath } : undefined);
+        const perpPositions = await byrealPerps.position.list(kpPath ? { keypairPath: kpPath } : undefined);
+        result = {
+          success: clmmPositions.success || perpAccount.success,
+          data: {
+            clmmPositions: clmmPositions.data,
+            perpAccount: perpAccount.data,
+            perpPositions: perpPositions.data,
+          },
+          raw: "",
+        };
+        break;
+      }
+      case "protocol_stats": {
         result = await byreal.overview(kpPath ? { keypairPath: kpPath } : undefined);
         break;
       }

@@ -35,7 +35,8 @@ IMPORTANT CONTEXT AWARENESS: I receive the full conversation history with every 
 4. ON-CHAIN LOGGING — Record every decision on Mantle for transparency
 
 Available tools:
-- check_balance: View wallet balances
+- check_balance: View personal portfolio — CLMM positions, perp account info, and perp positions
+- protocol_stats: View Byreal DEX overview — TVL, volume, fees, total pools (protocol-wide data, NOT personal)
 - execute_swap: Swap tokens via Byreal DEX
 - open_position: Open a CLMM liquidity position
 - open_perp: Open a perpetual futures position
@@ -241,8 +242,16 @@ const TOOL_DEFINITIONS = [
     type: "function",
     function: {
       name: "check_balance",
-      description: "Check wallet balances on Solana via Byreal",
-      parameters: { type: "object", properties: { wallet: { type: "string", description: "Wallet address (optional)" } } },
+      description: "View personal portfolio — CLMM positions, perp account info, and perp positions",
+      parameters: { type: "object", properties: {} },
+    },
+  },
+  {
+    type: "function",
+    function: {
+      name: "protocol_stats",
+      description: "View Byreal DEX overview — TVL, volume, fees, total pools (protocol-wide data, NOT personal)",
+      parameters: { type: "object", properties: {} },
     },
   },
   {

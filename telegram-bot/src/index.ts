@@ -437,7 +437,7 @@ bot.onText(/\/balance/, async (msg) => {
   const chatId = msg.chat.id;
   const userId = msg.from?.id || chatId;
   const sessionId = getSessionId(userId);
-  const reply = await callAgent(sessionId, "Show my balances and portfolio summary");
+  const reply = await callAgent(sessionId, "Show my personal portfolio — my positions, balances, and account info");
   bot.sendMessage(chatId, reply, { parse_mode: "Markdown", ...mainKeyboard() });
 });
 
