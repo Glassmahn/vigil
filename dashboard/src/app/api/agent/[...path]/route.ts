@@ -33,14 +33,15 @@ async function handleRequest(req: NextRequest, method: string) {
     if (API_KEY) headers["x-api-key"] = API_KEY;
 
     let res: Response;
-    if (method === "POST") {
-      headers["Content-Type"] = "application/json";
-      const body = await req.json();
-      res = await fetch(`${AGENT_API}/${path}`, {
-        method: "POST", headers, body: JSON.stringify(body),
-      });
-    } else if (path === "events") {
-      res = await fetch(`${AGENT_API}/${path}${search}`, { headers });
+    if (path === "events" || path === "chat/stream") {
+      const fetchInit: RequestInit = { headers };
+      if (method === "POST") {
+        (headers as Record<string, string>)["Content-Type"] = "application/json";
+        const body = await req.json();
+        fetchInit.method = "POST";
+        (fetchInit as any).body = JSON.stringify(body);
+      }
+      res = await fetch(`${AGENT_API}/${path}${search}`, fetchInit);
       return new Response(res.body, {
         status: res.status,
         headers: {
@@ -48,6 +49,12 @@ async function handleRequest(req: NextRequest, method: string) {
           "Cache-Control": "no-cache",
           Connection: "keep-alive",
         },
+      });
+    } else if (method === "POST") {
+      headers["Content-Type"] = "application/json";
+      const body = await req.json();
+      res = await fetch(`${AGENT_API}/${path}`, {
+        method: "POST", headers, body: JSON.stringify(body),
       });
     } else {
       res = await fetch(`${AGENT_API}/${path}${search}`, { headers });
